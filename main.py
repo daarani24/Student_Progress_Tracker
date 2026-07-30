@@ -1,5 +1,5 @@
 from src.menu import menu
-from src.operations import add_student,view_students
+from src.operations import *
 
 students=[]
 
@@ -11,6 +11,12 @@ while True:
     elif choice=="2":
         view_students(students)
     elif choice=="3":
+        update_student(students)
+    elif choice=="4":
+        delete_student(students)
+    elif choice=="5":
+        search_student(students)
+    elif choice=="6":
         print("\nThank You")
         break
     else:
