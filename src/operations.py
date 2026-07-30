@@ -13,13 +13,14 @@ def view_students(students):
         print("\nNo students found")
         return
     for s in students:
-        print("Roll_No:",s[0])
-        print("Name:",s[1])
+        print("Roll_No   :",s[0])
+        print("Name      :",s[1])
         print("Department:",s[2])
-        print("Year:",s[3])
+        print("Year      :",s[3])
+        print("\n")
 
 def update_student(students):
-    roll_no=int(input("Enter Roll No:"))
+    roll_no=input("Enter Roll No:")
     for s in students:
         if s[0]==roll_no:
             print("student Found")
@@ -44,3 +45,17 @@ def delete_student(students):
     else:
         print("Student not found")
 
+def search_student(students):
+    if len(students)==0:
+        print("No student is found")
+        return
+    roll_no=input("Enter Roll No:\n")
+    for s in students:
+        if s[0]==roll_no:
+            print("Roll Number:",s[0])
+            print("Name       :",s[1])
+            print("Department :",s[2])
+            print("Year       :",s[3])
+            break
+    else:
+        print("Student not found")
