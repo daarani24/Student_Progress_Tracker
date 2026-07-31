@@ -1,9 +1,14 @@
 def add_student(students):
     roll_no=input("Enter Roll No:")
+    for s in students:
+        if s[0]==roll_no:
+            print("\nRoll Number Already Exists!")
+            return
     name=input("Enter Name:")
     dept=input("Enter Department:")
     year=input("Year:")
 
+    s=[roll_no,name,dept,year]
     students.append([roll_no,name,dept,year])
 
     print("\nStudent Added Successfully!")
@@ -13,11 +18,10 @@ def view_students(students):
         print("\nNo students found")
         return
     for s in students:
-        print("Roll_No   :",s[0])
+        print("\nRoll_No   :",s[0])
         print("Name      :",s[1])
         print("Department:",s[2])
         print("Year      :",s[3])
-        print("\n")
 
 def update_student(students):
     roll_no=input("Enter Roll No:")

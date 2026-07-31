@@ -17,7 +17,7 @@ while True:
     elif choice=="5":
         search_student(students)
     elif choice=="6":
-        print("\nThank You")
+        print("Thank You")
         break
     else:
         print('\nInvalid Choice')
