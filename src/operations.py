@@ -1,3 +1,5 @@
+from src.student import Student
+
 def add_student(students):
     roll_no=input("Enter Roll No:")
 
@@ -10,8 +12,8 @@ def add_student(students):
     dept=input("Enter Department:")
     year=input("Year:")
 
-    s=[roll_no,name,dept,year]
-    students.append([roll_no,name,dept,year])
+    s=Student(roll_no,name,dept,year)
+    students.append(s)
 
     print("\nStudent Added Successfully!")
 
@@ -21,10 +23,10 @@ def view_students(students):
         return
     
     for s in students:
-        print("\nRoll_No   :",s[0])
-        print("Name      :",s[1])
-        print("Department:",s[2])
-        print("Year      :",s[3])
+        print("\nRoll_No   :",s.roll_no)
+        print("Name      :",s.name)
+        print("Department:",s.dept)
+        print("Year      :",s.year)
 
 def update_student(students):
     if len(students)==0:
@@ -34,7 +36,7 @@ def update_student(students):
     roll_no=input("Enter Roll No to Update:")
 
     for s in students:
-        if s[0]==roll_no:
+        if s.roll_no==roll_no:
             print("\nstudent Found!")
             print("1.Update Name")
             print("2.Update Department")
@@ -44,15 +46,15 @@ def update_student(students):
             c=input("Enter your choice:")
 
             if c=="1":
-                s[1]=input("Enter New Name:")
+                s.name=input("Enter New Name:")
             elif c=="2":
-                s[2]=input("Enter New Department:")
+                s.dept=input("Enter New Department:")
             elif c=="3":
-                s[3]=input("Enter New Year:")
+                s.year=input("Enter New Year:")
             elif c=="4":
-                s[1]=input("Enter New Name:")
-                s[2]=input("Enter New department:")
-                s[3]=input("Enter New Year:")
+                s.name=input("Enter New Name:")
+                s.dept=input("Enter New department:")
+                s.year=input("Enter New Year:")
             else:
                 print("Invalid choice!")
                 return
@@ -70,7 +72,7 @@ def delete_student(students):
     roll_no=input("Enter Roll No:")
 
     for s in students:
-        if s[0]==roll_no:
+        if s.roll_no==roll_no:
             students.remove(s)
             print("Student deleted successfully")
             break
@@ -82,14 +84,14 @@ def search_student(students):
         print("No student is found")
         return
     
-    roll_no=input("Enter Roll No:\n")
+    roll_no=input("Enter Roll No:")
 
     for s in students:
-        if s[0]==roll_no:
-            print("Roll Number:",s[0])
-            print("Name       :",s[1])
-            print("Department :",s[2])
-            print("Year       :",s[3])
+        if s.roll_no==roll_no:
+            print("Roll Number:",s.roll_no)
+            print("Name       :",s.name)
+            print("Department :",s.dept)
+            print("Year       :",s.year)
             break
     else:
         print("Student not found")
