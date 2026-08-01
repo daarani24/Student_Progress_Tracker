@@ -17,6 +17,8 @@ while True:
     elif choice=="5":
         search_student(students)
     elif choice=="6":
+        update_academic_progress(students)
+    elif choice=="7":
         print("Thank You")
         break
     else:

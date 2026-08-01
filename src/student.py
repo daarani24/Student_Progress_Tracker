@@ -4,3 +4,10 @@ class Student:
         self.name=name
         self.dept=dept
         self.year=year
+
+        self.attendance=0
+        self.assignment=0
+        self.internal_marks=0
+
+        self.average=0
+        self.grade=""        

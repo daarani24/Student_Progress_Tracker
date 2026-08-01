@@ -23,10 +23,15 @@ def view_students(students):
         return
     
     for s in students:
-        print("\nRoll_No   :",s.roll_no)
-        print("Name      :",s.name)
-        print("Department:",s.dept)
-        print("Year      :",s.year)
+        print("======== Student Details ========")
+        print("\nRoll_No         :",s.roll_no)
+        print("Name            :",s.name)
+        print("Department      :",s.dept)
+        print("Year            :",s.year)
+
+        print("Attendance      :",s.attendance)
+        print("Assignment Marks:",s.assignment)
+        print("Internal Marks  :",s.internal_marks)
 
 def update_student(students):
     if len(students)==0:
@@ -95,3 +100,22 @@ def search_student(students):
             break
     else:
         print("Student not found")
+
+def update_academic_progress(students):
+    if len(students)==0:
+        print("\nNo Student Records Available.")
+        return
+
+    roll_no=input("Enter Roll Number:")
+
+    for s in students:
+
+        if s.roll_no==roll_no:
+            print("\n========Update Academic Progress========")
+            s.attendance=float(input("Enter Attendance(%):"))
+            s.assignment=float(input("Enter Assignment Marks:"))
+            s.internal_marks=float(input("Enter Internal marks:"))
+            print("\n Academic Progress Updated Successfully!")
+            break
+    else:
+        print("\nStudent Not Found!")
