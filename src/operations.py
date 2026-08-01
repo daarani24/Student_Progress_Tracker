@@ -74,15 +74,26 @@ def delete_student(students):
         print("No student detail is found")
         return
     
-    roll_no=input("Enter Roll No:")
+    roll_no=input("Enter Roll No to Delete:")
 
     for s in students:
         if s.roll_no==roll_no:
-            students.remove(s)
-            print("Student deleted successfully")
+            print("\n===== Student Found =====")
+            print("Roll Number :", s.roll_no)
+            print("Name        :", s.name)
+            print("Department  :", s.department)
+            print("Year        :", s.year)
+
+            choice=input("\n Are you sure you want to delete this student? (Y/N):")
+
+            if choice.upper()=='Y':
+                students.remove(s)
+                print("\nStudent deleted successfully!")
+            else:
+                print("\nDeletion Cancelled.")
             break
     else:
-        print("Student not found")
+        print("\nStudent not found")
 
 def search_student(students):
     if len(students)==0:
