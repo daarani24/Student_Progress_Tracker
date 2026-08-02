@@ -4,7 +4,7 @@ def add_student(students):
     roll_no=input("Enter Roll No:")
 
     for s in students:
-        if s[0]==roll_no:
+        if s.roll_no==roll_no:
             print("\nRoll Number Already Exists!")
             return
         
@@ -130,3 +130,20 @@ def update_academic_progress(students):
             break
     else:
         print("\nStudent Not Found!")
+
+def calculate_performance(s):
+
+    s.average = (s.assignment_marks + s.internal_marks) / 2
+
+    if s.average >= 90:
+        s.grade = "O"
+    elif s.average >= 80:
+        s.grade = "A+"
+    elif s.average >= 70:
+        s.grade = "A"
+    elif s.average >= 60:
+        s.grade = "B+"
+    elif s.average >= 50:
+        s.grade = "B"
+    else:
+        s.grade = "RA"
