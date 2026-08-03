@@ -4,7 +4,7 @@ def add_student(students):
     roll_no=input("Enter Roll No:")
 
     for s in students:
-        if s.roll_no==roll_no:
+        if s.get_roll_no()==roll_no:
             print("\nRoll Number Already Exists!")
             return
         
@@ -24,14 +24,17 @@ def view_students(students):
     
     for s in students:
         print("======== Student Details ========")
-        print("\nRoll_No         :",s.roll_no)
-        print("Name            :",s.name)
-        print("Department      :",s.dept)
-        print("Year            :",s.year)
+        print("\nRoll_No         :",s.get_roll_no())
+        print("Name            :",s.get_name())
+        print("Department      :",s.get_dept())
+        print("Year            :",s.get_year())
 
-        print("Attendance      :",s.attendance)
-        print("Assignment Marks:",s.assignment)
-        print("Internal Marks  :",s.internal_marks)
+        print("Attendance      :",s.get_attendance())
+        print("Assignment Marks:",s.get_assignment())
+        print("Internal Marks  :",s.get_internal_marks())
+
+        print("Average         :",s.get_average())
+        print("Grade           :",s.get_grade())
 
 def update_student(students):
     if len(students)==0:
@@ -41,7 +44,7 @@ def update_student(students):
     roll_no=input("Enter Roll No to Update:")
 
     for s in students:
-        if s.roll_no==roll_no:
+        if s.get_roll_no()==roll_no:
             print("\nstudent Found!")
             print("1.Update Name")
             print("2.Update Department")
@@ -51,15 +54,15 @@ def update_student(students):
             c=input("Enter your choice:")
 
             if c=="1":
-                s.name=input("Enter New Name:")
+                s.set_name(input("Enter New Name:"))
             elif c=="2":
-                s.dept=input("Enter New Department:")
+                s.set_dept(input("Enter New Department:"))
             elif c=="3":
-                s.year=input("Enter New Year:")
+                s.set_year(input("Enter New Year:"))
             elif c=="4":
-                s.name=input("Enter New Name:")
-                s.dept=input("Enter New department:")
-                s.year=input("Enter New Year:")
+                s.set_name(input("Enter New Name:"))
+                s.set_dept(input("Enter New department:"))
+                s.set_year(input("Enter New Year:"))
             else:
                 print("Invalid choice!")
                 return
@@ -77,12 +80,12 @@ def delete_student(students):
     roll_no=input("Enter Roll No to Delete:")
 
     for s in students:
-        if s.roll_no==roll_no:
+        if s.get_roll_no()==roll_no:
             print("\n===== Student Found =====")
-            print("Roll Number :", s.roll_no)
-            print("Name        :", s.name)
-            print("Department  :", s.department)
-            print("Year        :", s.year)
+            print("Roll Number :", s.get_roll_no())
+            print("Name        :", s.get_name())
+            print("Department  :", s.get_dept())
+            print("Year        :", s.get_year())
 
             choice=input("\n Are you sure you want to delete this student? (Y/N):")
 
@@ -103,11 +106,11 @@ def search_student(students):
     roll_no=input("Enter Roll No:")
 
     for s in students:
-        if s.roll_no==roll_no:
-            print("Roll Number:",s.roll_no)
-            print("Name       :",s.name)
-            print("Department :",s.dept)
-            print("Year       :",s.year)
+        if s.get_roll_no()==roll_no:
+            print("Roll Number:",s.get_roll_no())
+            print("Name       :",s.get_name())
+            print("Department :",s.get_dept())
+            print("Year       :",s.get_year())
             break
     else:
         print("Student not found")
@@ -121,29 +124,14 @@ def update_academic_progress(students):
 
     for s in students:
 
-        if s.roll_no==roll_no:
+        if s.get_roll_no()==roll_no:
             print("\n========Update Academic Progress========")
-            s.attendance=float(input("Enter Attendance(%):"))
-            s.assignment=float(input("Enter Assignment Marks:"))
-            s.internal_marks=float(input("Enter Internal marks:"))
+            s.set_attendance(float(input("Enter Attendance(%):")))
+            s.set_assignment(float(input("Enter Assignment Marks:")))
+            s.set_internal_marks(float(input("Enter Internal marks:")))
+            s.calculate_performance()
             print("\n Academic Progress Updated Successfully!")
             break
     else:
         print("\nStudent Not Found!")
 
-def calculate_performance(s):
-
-    s.average = (s.assignment_marks + s.internal_marks) / 2
-
-    if s.average >= 90:
-        s.grade = "O"
-    elif s.average >= 80:
-        s.grade = "A+"
-    elif s.average >= 70:
-        s.grade = "A"
-    elif s.average >= 60:
-        s.grade = "B+"
-    elif s.average >= 50:
-        s.grade = "B"
-    else:
-        s.grade = "RA"
