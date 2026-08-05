@@ -69,3 +69,17 @@ class Student:
         self.set_assignment(assignment)
         self.set_internal_marks(internal)
         self.calculate_performance()
+
+    def display(self):
+        print("======== Student Details ========")
+        print("Roll No         :",self.get_roll_no())
+        print("Name            :",self.get_name())
+        print("Department      :", self.get_dept())
+        print("Year            :", self.get_year())
+
+        print("Attendance      :", self.get_attendance())
+        print("Assignment Marks:", self.get_assignment())
+        print("Internal Marks  :", self.get_internal_marks())
+
+        print("Average         :", self.get_average())
+        print("Grade           :", self.get_grade())

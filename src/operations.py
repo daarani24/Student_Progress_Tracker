@@ -23,18 +23,7 @@ def view_students(students):
         return
     
     for s in students:
-        print("======== Student Details ========")
-        print("\nRoll_No         :",s.get_roll_no())
-        print("Name            :",s.get_name())
-        print("Department      :",s.get_dept())
-        print("Year            :",s.get_year())
-
-        print("Attendance      :",s.get_attendance())
-        print("Assignment Marks:",s.get_assignment())
-        print("Internal Marks  :",s.get_internal_marks())
-
-        print("Average         :",s.get_average())
-        print("Grade           :",s.get_grade())
+        s.display()
 
 def update_student(students):
     if len(students)==0:
@@ -126,7 +115,7 @@ def update_academic_progress(students):
         if student.get_roll_no()==roll_no:
 
             print("\n======== Update Academic Progress ========")
-            
+
             attendance=float(input("Enter Attendance(%): "))
             assignment=float(input("Enter Assignment Marks: "))
             internal=float(input("Enter Internal Marks: "))
