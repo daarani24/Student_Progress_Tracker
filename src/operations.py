@@ -116,22 +116,25 @@ def search_student(students):
         print("Student not found")
 
 def update_academic_progress(students):
-    if len(students)==0:
+    if len(students) == 0:
         print("\nNo Student Records Available.")
         return
 
-    roll_no=input("Enter Roll Number:")
+    roll_no = input("Enter Roll Number: ")
 
-    for s in students:
+    for student in students:
+        if student.get_roll_no()==roll_no:
 
-        if s.get_roll_no()==roll_no:
-            print("\n========Update Academic Progress========")
-            s.set_attendance(float(input("Enter Attendance(%):")))
-            s.set_assignment(float(input("Enter Assignment Marks:")))
-            s.set_internal_marks(float(input("Enter Internal marks:")))
-            s.calculate_performance()
-            print("\n Academic Progress Updated Successfully!")
+            print("\n======== Update Academic Progress ========")
+            
+            attendance=float(input("Enter Attendance(%): "))
+            assignment=float(input("Enter Assignment Marks: "))
+            internal=float(input("Enter Internal Marks: "))
+
+            student.update_academic_progress(attendance, assignment, internal)
+
+            print("\nAcademic Progress Updated Successfully!")
             break
+
     else:
         print("\nStudent Not Found!")
-

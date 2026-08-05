@@ -64,3 +64,8 @@ class Student:
         else:
             self._grade = "RA"
 
+    def update_academic_progress(self, attendance, assignment, internal):
+        self.set_attendance(attendance)
+        self.set_assignment(assignment)
+        self.set_internal_marks(internal)
+        self.calculate_performance()
